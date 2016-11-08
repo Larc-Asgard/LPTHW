@@ -1,0 +1,82 @@
+This exercise asks me to write down list of symbols/characters mentioned in the previous exercises.
+I have been making notes for this course on Google Doc.
+Here is what it contains so far:
+
+PowerShell Command
+ls - list directory
+cd - change directory
+. (current directory)
+~ (home directory)
+../ (upper directory)
+mkdir - make directory
+rmdir - remove directory
+re - remove
+
+
+Tab - tab completion
+
+
+Python
+print “string”, variable1, variable2  
+# - comment
+operator of Python
++
+-
+/
+*
+%
+<
+>
+<=
+>=
+
+
+Formatter
+%s - for string
+%d - for integer
+%f - floating point
+%r - print whatever it is
+
+
+print “print within (%d, %d) %(number1, number1+1)
+
+
+\n - used within string, meaing new line
+\t* - list
+\t - tab
+(backslash is an “escaper”)
+
+
+raw_input(prompt_message) is a basic input function
+
+
+With:
+from sys import argv
+script, first, second, third = argv
+Then run the script with the command line:
+Python script.py variable1 variable2 variable3
+
+
+It allows the script to obtain variables from the command line, put it into argv and then unpack it.
+
+
+open() and variable.read() can open and read txt file
+
+
+variable.read()
+variable.write()
+variable.truncate()
+variable.close()
+in which the variable is containing the txt file by
+variable = open(filename, mode)
+
+
+Mode for open(filename, mode):
+w - write
+r - read
+a - append
+
+
+To create a self-defined function
+def function(variable):
+	action()
