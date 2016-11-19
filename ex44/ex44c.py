@@ -1,3 +1,5 @@
+#excuted the child function while keeping the value of the parent
+
 class Parent(object):
     def altered(self):
         print "PARENT altered()"
