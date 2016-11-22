@@ -72,10 +72,9 @@ class Entrance(Stage):
 
         ready = raw_input("> ")
         if ready == "y":
-            floor = 1
             return "EarlyStair"
         elif ready == "n":
-            "Farewell."
+            print "Farewell."
             exit(1)
 #what special about this game is, every playthrough is different
 #the monsters are randomly generated
