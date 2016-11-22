@@ -73,7 +73,7 @@ class LaserWeaponArmory(Scene):
 
         while guess != code and guesses < 10:
             print "BUZZ!"
-            guess += 1
+            guesses += 1
             guess = raw_input ("[keypad]> ")
 
         if guess == code:
@@ -148,7 +148,6 @@ class Map(object):
 
     def next_scene(self, scene_name):
         val = Map.scenes.get(scene_name)
-        print self.next_scene
         return val
 
     def opening_scene(self):
