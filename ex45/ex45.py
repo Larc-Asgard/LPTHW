@@ -25,6 +25,12 @@ class Engine(object):
             current_stage = self.stage_map.next_stage(next_stage_name)
 
         current_stage.enter()
+
+class GGWP(Stage):
+    def enter(self):
+        print "Game Over."
+        exit(1)
+
 #player class, nothing but a HP bar
 class Player(object):
     def __init__(self):
@@ -46,7 +52,7 @@ class Dragon(Boss):
             self.ability = "Rock Tomb"
         elif lottery == 4:
             self.element = "Wind"
-            self.element = "Hurricane"
+            self.ability = "Hurricane"
         element = self.element
         self.name = element + " Dragon"
         name = self.name
@@ -260,6 +266,7 @@ class FinalStage(Stage):
             spell = raw_input("> ")
 
 
+
             if spell == "1":
                 spellelement = "Fire"
             elif spell == "2":
@@ -295,9 +302,15 @@ class FinalStage(Stage):
                 if spellkill == boss.element:
                     print "You have defeated the dragon!"
                     return "finished"
+                else:
+                    print "The spell has no effect on its scale. The dragon swings it's claw upon you..."
+                    return "GameOver"
+            else:
+                print "The spell has no effect on its scale. The dragon swings it's claw upon you..."
+                return "GameOver"
         else:
-            player.health = player.health - 5
-
+            print "The spell has no effect on its scale. The dragon swings it's claw upon you..."
+            return "GameOver"
 class Winning(Stage):
     def enter(self):
         print "You have defeated all the monsters in this dungeon."
@@ -312,7 +325,8 @@ class Level(object):
         'MidStair': MidStair(),
         'EndStair': EndStair(),
         'FinalStage': FinalStage(),
-        'finished': Winning()
+        'finished': Winning(),
+        "GameOver": GGWP()
 
     }
     def __init__(self, start_stage):
@@ -325,10 +339,6 @@ class Level(object):
     def opening_stage(self):
         return self.next_stage(self.start_stage)
 
-class GGWP(Stage):
-    def enter(self):
-        print "Game Over."
-        exit(1)
 
 #actual running code, ref to ex43
 player = Player()
