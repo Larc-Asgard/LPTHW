@@ -34,10 +34,10 @@ def test_stops():
 #perhaps int()? But I don't know where to put it
 
 def test_numbers():
-    assert_equal(lexicon.scan("1234"), [('number', '1234')])
+    assert_equal(lexicon.scan("1234"), [('number', 1234)])
     result = lexicon.scan('3 91234')
-    assert_equal(result, [('number', "3"),
-                            ('number', '91234')])
+    assert_equal(result, [('number', 3),
+                            ('number', 91234)])
 
 def test_errors():
     assert_equal(lexicon.scan("ASDFASFASDF"), [('error', 'ASDFASFASDF')])

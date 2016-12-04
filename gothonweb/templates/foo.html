@@ -1,0 +1,14 @@
+<!doctype html>
+  <html>
+    <head>
+      <title>Gothons Of Planet Percal #25</title>
+    </head>
+    <body>
+      {% if greet %}
+      I just wanted to say <em style="color: green; font-size: 2em;">{{ greet }}</em>
+      {% else %}
+      <h1><em>Foo</em> Foo</h1>
+      {% endif %}
+      <!-->The greeting variable is not existed so that it returns "Foo Foo"<!-->
+    </body>
+  </html>
