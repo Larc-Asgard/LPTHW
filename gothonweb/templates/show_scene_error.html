@@ -1,0 +1,37 @@
+<!-- this page is orignally for the error message popped out when userinput has no translation
+but then I think of it: the game has fixed options, so what don't just put a few buttons to choose from?
+it makes more sense and the help function is really explaining things to player. -->
+
+<script>
+  alert("Invalid Input! It seems like you hop around the pages with browser? Well, you aren't supposed to.")
+</script>
+
+{% extends "layout.html" %}
+<!-->the double bracket goes before everything, even the "" in HTML<!-->
+{% block content %}
+<style>
+body {background-color: rgb(80,80,80)}
+p {
+  color: white;
+  text-align: center;
+}
+pre {
+  color: white;
+  font-size: 24;
+  text-align: center;
+}
+h1 {
+  color:white;
+  text-align: center
+}
+form {
+  text-align: center;
+}
+</style>
+{% if scene %}
+  <h1> {{ scene.title }} </h1>
+  <pre>{{ scene.description }}</pre>
+{% else %}
+  <p><a href="/">Start at the Beginning</a></p>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,68 @@
+{% extends "layout.html" %}
+<!-->the double bracket goes before everything, even the "" in HTML<!-->
+{% block content %}
+<style>
+body {background-color: rgb(80,80,80)}
+p {
+  color: white;
+  text-align: center;
+}
+pre {
+  color: white;
+  font-size: 18px;
+  text-align: center;
+}
+h1 {
+  color:white;
+  text-align: center
+}
+form {
+  text-align: center;
+}
+</style>
+
+{% if scene %}
+  <h1> {{ scene.title }} </h1>
+  {% if scene.img != None %}
+  <p><img src= 'static/{{ scene.img }}' alt= {{ scene.img }} width = 854 height = 480}></p>
+  {% endif %}
+  <pre>{{ scene.description }}</pre>
+  {% if scene.urlname == "death" %}
+    <p><a href="/">Play Again?</a></p>
+  {% elif scene.urlname == "the_end_winner" %}
+    <p><a href="/">Start at the Beginning</a></p>
+    <form action="/game" method="POST">
+      <p>Or Start at Any Point You Want to<p>
+      <select name = "userinput">
+        <option value = "1">Corridor</option>
+        <option value = "2">Service Tunnel</option>
+        <option value = "3">Escape Shuffle</option>
+      </select>
+      <button type = "sumbit">Go</button>
+    </form>
+  {% else %}
+
+    <p>
+      <form action="/game" method="POST">
+        <button type = "submit" name="userinput" value = "1">{{ scene.option1 }}</button>
+        <button type = "submit" name="userinput" value = "2">{{ scene.option2 }}</button>
+        <button type = "submit" name="userinput" value = "3">{{ scene.option3 }}</button>
+        <button type = "submit" name="userinput" value = "4">{{ scene.option4 }}</button>
+      </form>
+      <br>
+    <p>
+      <button type="button" onclick="tipBox()">What are these options?</button>
+    </p>
+      <script>
+      function tipBox() {
+        //need to add an attribute as options in the class scene
+        var answer = "{{ scene.helps }} ";
+        alert(answer);
+      }
+      </script>
+    </p>
+  {% endif %}
+{% else %}
+  <p><a href="/">Start at the Beginning</a></p>
+{% endif %}
+{% endblock %}
